@@ -1,0 +1,33 @@
+Регистры:
+RX TX DX FX CX VX
+Функциональные регистры:
+FRX FTX FFX FGX FCX FVX
+
+prod Register, Value;
+Команда умножения значения регистра на значение Value.
+Если регистр пуст, то Value умножается на 0.
+
+sum Register, Value;
+Команда суммы регистра и Value.
+Если регистр пуст, то принимает значение Value.
+
+div Register, Value;
+Команда деления значения регистра на Value.
+Если регистр пуст, то 0 делится на Value.
+
+pow Register, Value;
+Возведение в степень Value значения регистра.
+
+put Register, Data;
+Добавления любых значений в регистр.
+
+out Register;
+Вывод значения регистра.
+
+func FunctionalRegister, Register -> Command Register, Value;
+Объявление функции.
+Пример:
+func FFX, RX -> prod RX, 6;
+
+func FunctionalRegister;
+Вызов функции.
