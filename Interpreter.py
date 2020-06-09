@@ -1,0 +1,3 @@
+import CODE_INTERPRETER as CI
+
+CI.MAIN_DEF()
