@@ -50,6 +50,21 @@ def LINES_TOKENS(LINE: str): #Создание токенов строк
         return 'ERROR: Invalid Syntax.'
     return TOKENS
 
+def COMMAND_CYCLE(TOKEN: list):
+    if TOKEN[2] == 'do':
+        if NUMBERS_ANALYSYS(TOKEN[1]):
+            for i in range(int(TOKEN[1])):
+                COMM_END = CODE_WORK(TOKEN[3:-1])
+                if COMM_END not in KW.ERRORS:
+                    continue
+                else:
+                    return COMM_END
+        else:
+            return 'ERROR: Invalid Iterable Value.'
+    else:
+        return 'ERROR: Invalid Syntax.'
+
+
 def NUMBERS_ANALYSYS(TOKEN: str): #Функция проверки на число
     if TOKEN.isdigit():
         return True
@@ -176,6 +191,9 @@ def CODE_WORK(COMMAND_TOKEN: list): #Функция определения ко�
         return COMM_END
     elif COMMAND_TOKEN[0] == 'func':
         COMM_END = COMMAND_FUNC(COMMAND_TOKEN)
+        return COMM_END
+    elif COMMAND_TOKEN[0] == 'cycle':
+        COMM_END = COMMAND_CYCLE(COMMAND_TOKEN)
         return COMM_END
     else:
         return 'ERROR: Invalid Syntax.'
