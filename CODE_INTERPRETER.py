@@ -20,7 +20,7 @@ def FILE_CHECK(FILE_PATH: str):
 
 def CHECK(FILE_PATH: str): #Проверка расширения файла
     FILE_PATH += ' '
-    if FILE_PATH[-5:-1] != '.qwl':
+    if FILE_PATH[-6:-1] != '.qwpl':
         return False
     return True
 
